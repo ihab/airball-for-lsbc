@@ -8,6 +8,7 @@ public class DisplayConfiguration {
     public final Color mTextColor = Color.WHITE;
     public final Color mLineColor = Color.WHITE;
     public final Color mPointerColor = Color.decode("#ffcc33");
+    public final Color mClimbRateColor = Color.MAGENTA;
 
     public final float mCautionStripeThickness;
     public final float mThinLineThickness;
@@ -16,7 +17,10 @@ public class DisplayConfiguration {
     public final float mPointerShapeSize;
     public final float mPointerToScaleOffset;
 
+
     public final Font mFont = Font.decode(Font.MONOSPACED);
+
+    public final float mTextBaselineToCenterFactor = 0.375f;
 
     public DisplayConfiguration(float w, float h) {
         mCautionStripeThickness = (float) Math.floor(w / 100);

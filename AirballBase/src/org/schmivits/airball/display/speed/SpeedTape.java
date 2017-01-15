@@ -7,12 +7,11 @@ import org.schmivits.airball.widget.FilledPolygon;
 import org.schmivits.airball.widget.Rectangle;
 import org.schmivits.airball.widget.Widget;
 
-import java.awt.Color;
-
 public class SpeedTape extends Container {
 
     public interface Model {
         float getSpeed();
+
         Aircraft getAircraft();
     }
 
@@ -31,22 +30,27 @@ public class SpeedTape extends Container {
                     public float getSpeed() {
                         return model.getSpeed();
                     }
+
                     @Override
                     public float getVs0() {
                         return model.getAircraft().getVs0();
                     }
+
                     @Override
                     public float getVfe() {
                         return model.getAircraft().getVfe();
                     }
+
                     @Override
                     public float getVs1() {
                         return model.getAircraft().getVs1();
                     }
+
                     @Override
                     public float getVno() {
                         return model.getAircraft().getVno();
                     }
+
                     @Override
                     public float getVne() {
                         return model.getAircraft().getVne();

@@ -3,21 +3,22 @@ package org.schmivits.airball.widget;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Stroke;
 
 public class StrokedPolygon extends AbstractPolygon {
 
-    private float mStrokeWidth;
+    private Stroke mStroke;
 
     public StrokedPolygon(float[][] points, Color color, float strokeWidth) {
         super(points, color);
         setClip(false);
-        mStrokeWidth = strokeWidth;
+        mStroke = new BasicStroke(strokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
     }
 
     @Override
     protected void drawContents(Graphics2D g) {
         g.setColor(mColor);
-        g.setStroke(new BasicStroke(mStrokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g.setStroke(mStroke);
         g.draw(mShape);
     }
 }

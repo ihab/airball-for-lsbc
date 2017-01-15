@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AirballBase/AirballBase.iml" filepath="$PROJECT_DIR$/AirballBase/AirballBase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidPending/AndroidPending.iml" filepath="$PROJECT_DIR$/AndroidPending/AndroidPending.iml" />
       <module fileurl="file://$PROJECT_DIR$/testing/testing.iml" filepath="$PROJECT_DIR$/testing/testing.iml" />
     </modules>
   </component>

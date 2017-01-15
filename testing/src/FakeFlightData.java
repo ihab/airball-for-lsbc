@@ -104,7 +104,7 @@ public class FakeFlightData implements FlightData {
     private final Timer mTimer;
 
     public FakeFlightData() {
-        mTimer = new Timer(100, new ActionListener() {
+        mTimer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 update(System.currentTimeMillis());

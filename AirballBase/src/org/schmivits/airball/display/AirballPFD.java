@@ -3,6 +3,8 @@ package org.schmivits.airball.display;
 import org.schmivits.airball.airdata.Aircraft;
 import org.schmivits.airball.airdata.FlightData;
 import org.schmivits.airball.display.airball.Airball;
+import org.schmivits.airball.display.altitude.AltitudeTape;
+import org.schmivits.airball.display.climbrate.ClimbRateTape;
 import org.schmivits.airball.display.speed.SpeedTape;
 import org.schmivits.airball.widget.Container;
 import org.schmivits.airball.widget.Rectangle;
@@ -57,6 +59,20 @@ public class AirballPFD extends Container {
             }
         };
 
+        AltitudeTape.Model altitudeTapeModel = new AltitudeTape.Model() {
+            @Override
+            public float getAltitude() {
+                return model.getAirdata().getAltitude();
+            }
+        };
+
+        ClimbRateTape.Model climbRateTapeModel = new ClimbRateTape.Model() {
+            @Override
+            public float getClimbRate() {
+                return model.getAirdata().getClimbRate();
+            }
+        };
+
         float instrumentGap = (float) Math.floor(width / 75);
         float altitudeTapeWidth = 0.175f * width;
         float speedTapeWidth = 0.125f * width;
@@ -82,49 +98,21 @@ public class AirballPFD extends Container {
         airball.sizeTo(airballWidth, getHeight());
         x += airballWidth + instrumentGap;
 
-        Widget w;
-
-        /* mChildren.add(new AltitudeTape(
-                config, resources, assets,
-                x, 0f,
-                altitudeTapeWidth, getHeight(),
-                altitudeTapeModel)); */
-        mChildren.add(w = new Rectangle(Color.CYAN));
-        w.moveTo(x, 0f);
-        w.sizeTo(altitudeTapeWidth, getHeight());
-
+        mChildren.add(new AltitudeTape(
+                altitudeTapeModel,
+                config,
+                x,
+                0f,
+                altitudeTapeWidth,
+                getHeight()));
         x += altitudeTapeWidth + instrumentGap;
 
-        /* mChildren.add(new ClimbRateTape(
-                config, resources, assets,
-                x, 0f,
-                climbRateTapeWidth, getHeight(),
-                climbRateTapeModel)); */
-        mChildren.add(w = new Rectangle(Color.CYAN));
-        w.moveTo(x, 0f);
-        w.sizeTo(climbRateTapeWidth, getHeight());
+        mChildren.add(new ClimbRateTape(
+                climbRateTapeModel,
+                config,
+                x,
+                0f,
+                climbRateTapeWidth,
+                getHeight()));
     }
-
-    /**
-     * Create an Airball PFD widget.
-     */
-    /*
-    public AirballPFD(Resources resources, AssetManager assets, final FlightData model,
-            final float width, final float height) {
-
-        AltitudeTape.Model altitudeTapeModel = new AltitudeTape.Model() {
-            @Override
-            public ValueModel<Float> getAltitude() {
-                return model.getAirdata().getAltitude();
-            }
-        };
-
-        ClimbRateTape.Model climbRateTapeModel = new ClimbRateTape.Model() {
-            @Override
-            public ValueModel<Float> getClimbRate() {
-                return model.getAirdata().getClimbRate();
-            }
-        };
-    }
-    */
 }

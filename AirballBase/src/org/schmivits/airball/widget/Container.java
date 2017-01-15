@@ -8,7 +8,8 @@ public class Container extends Widget {
 
     protected final List<Widget> mChildren = new ArrayList<Widget>();
 
-    public Container() {}
+    public Container() {
+    }
 
     public List<Widget> getChildren() {
         return mChildren;

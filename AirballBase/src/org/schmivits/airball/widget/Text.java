@@ -15,15 +15,16 @@ public class Text extends Widget {
         mText = text;
         mColor = color;
         mSize = size;
-        mFont = font;
+        mFont = font.deriveFont(size);
         setClip(false);
     }
 
     @Override
     protected void drawContents(Graphics2D g) {
         g.setColor(mColor);
-        g.setFont(mFont.deriveFont(mSize));
+        g.setFont(mFont);
         g.translate(0, mSize);
         g.drawString(mText, 0, 0);
+        g.translate(0, -mSize);
     }
 }

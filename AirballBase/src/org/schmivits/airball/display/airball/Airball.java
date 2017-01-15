@@ -45,9 +45,6 @@ public class Airball extends Container {
 
     @Override
     public void drawContents(Graphics2D g) {
-        g.setColor(Color.BLACK);
-        g.fill(new Rectangle2D.Float(0f, 0f, getWidth(), getHeight()));
-
         Widget airballDisplayWidget;
 
         float diameter =

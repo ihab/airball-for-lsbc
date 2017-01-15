@@ -6,19 +6,29 @@ import org.schmivits.airball.widget.Widget;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 
 public class TestAirballs {
     public static void main(String[] argv) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                execute();
+            }
+        });
+    }
+
+    public static void execute() {
         final JFrame f = new JFrame();
         FlightData flightData = new FakeFlightData();
         final Widget widget = makeWidget(flightData);
         f.setSize(800, 1200);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.getContentPane().setLayout(new GridLayout(1, 1));
-        f.getContentPane().add(new JPanel() {
+        f.getContentPane().add(new JPanel(true) {
             protected void paintComponent(Graphics g) {
                 widget.moveTo(0, 0);
                 Graphics2D g2 = (Graphics2D) g;

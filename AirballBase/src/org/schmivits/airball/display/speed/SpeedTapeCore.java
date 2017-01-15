@@ -11,10 +11,15 @@ public class SpeedTapeCore extends Widget {
 
     public interface Model {
         float getSpeed();
+
         float getVs0();  // Bottom of white arc
+
         float getVfe();  // Top of white arc
+
         float getVs1();  // Bottom of green arc
+
         float getVno();  // Top of green / bottom of yellow arc
+
         float getVne();  // Top of yellow / bottom of red arc
     }
 
@@ -24,8 +29,6 @@ public class SpeedTapeCore extends Widget {
     private static final Color GREEN_ARC_COLOR = Color.GREEN;
     private static final Color YELLOW_ARC_COLOR = Color.YELLOW;
     private static final Color RED_ARC_COLOR = Color.RED;
-
-    private static final float TEXT_BASELINE_TO_CENTER_FACTOR = 0.375f;
 
     private final DisplayConfiguration mConfig;
     private final Model mModel;
@@ -80,7 +83,7 @@ public class SpeedTapeCore extends Widget {
             g.drawString(
                     s,
                     getWidth() - mTextRightBoundaryFromRight - stringWidth,
-                    y + mTextSize * TEXT_BASELINE_TO_CENTER_FACTOR);
+                    y + mTextSize * mConfig.mTextBaselineToCenterFactor);
         } else {
             g.setColor(mConfig.mLineColor);
             g.fill(new Rectangle2D.Float(
